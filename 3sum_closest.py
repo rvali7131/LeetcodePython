@@ -21,7 +21,7 @@ def sum_closest(L, num_k, target):
     prev = {}
     max_t = sum([x for x in L if x > 0])
     min_t = sum([x for x in L if x <= 0])
-    print 'target range: [%d, %d]' %(min_t, max_t)
+    print('target range: [%d, %d]' %(min_t, max_t))
     
     # Initialization:
     # S(0,any,any) = False
@@ -57,7 +57,7 @@ def sum_closest(L, num_k, target):
         next_i,next_k,next_t = prev[(i,k,t)]
         if next_k == k-1: output.append(L[next_i])
         i,k,t = next_i,next_k,next_t
-    print 'output:', output, 'sum(output):', sum(output)
+    print('output:', output, 'sum(output):', sum(output))
     return output
 
 
