@@ -10,12 +10,12 @@ Given an array S of n integers, find three integers in S such that the sum is cl
 '''
 from __future__ import division
 import random
+import math
 
 ### DP? Given a list L
 # S(i, k, target) = True if we can find k elements among L[:i] to sum up to target
 # S(i, k, target) = S(i-1, k-1, target-L[i-1]) or S(i-1, k, target)
 def sum_closest(L, num_k, target):
-    import math
     n = len(L)
     S = {}
     prev = {}
@@ -62,6 +62,17 @@ def sum_closest(L, num_k, target):
 
 
 if __name__ == '__main__':
-    sum_closest([-1, 2, 1, -3, 6], 2, 2)
+    sum_closest([-1, 2, 1, -3, 6], 3, 2)
 
-
+####---------- my test codes ------------####
+# this is for 3 number in order! 
+def my_sum(L,num_k,target):
+    for i in range(len(L)):
+        sum_L = 0
+        output = []
+        for j in range(num_k):
+            sum_L += L[i+j]
+            output.append(L[i+j])
+        if sum_L == target:
+            break
+    return output
